@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="panel">
+        <div class="mid"></div>
+        <div class="panel-footer"></div>
+    </div>
+</body>
+<style lang="less">
+    * {
+        margin: 0px;
+        padding: 0px ;
+        box-sizing: border-box;
+    }
+
+    .panel {
+        height: 400px;
+        width: 400px;
+        background:#eee;
+        position: relative;
+        
+    } 
+    .panel::before {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 0;
+        left: 0px;
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+    }
+    .panel::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        top: 0;
+        right: 0px;
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .mid {
+        /* position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: (-50% , -50%); */
+        height: 50%;
+        width: 50%;
+    }
+    .mid::after {
+        content: '';
+        position: absolute;
+        right: 0px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background: black;
+    }
+    .panel-footer {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        /* border: 2px solid black; */
+    }
+
+    .panel-footer::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        bottom: 0;
+        right: 0px;
+        border-bottom: 2px solid black;
+        border-right: 2px solid black;
+    }
+    .panel-footer::before {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        bottom: 0;
+        left: 0px;
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+    }
+
+
+</style>
+</html>

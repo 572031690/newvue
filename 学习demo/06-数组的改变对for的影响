@@ -1,0 +1,12 @@
+list.concat(["555","6666"]) //将list后面连接上 但是不会改变list
+list=list.concat(["555","6666"])  //会改变
+list.push("666")  //在最后增加
+list.shirt() 删除第一个
+list.pop 删除最后一个
+
+
+list[0]="21" 这种方式会改变数组，但是不会改边v-for循环内显示的内容
+list.splice(0,1,"mjh")  删除从编号为0的数组元素开始的一个元素 替换为 “mjh” 可以被v-for循环识别  不可以作用与对象
+Vue.set(list,0,"mjh")  删除编号为0的元素替换为 “mjh”  可以被v-for循环识别 *此方法对对象也可以适用*
+
+Vue.set(obj,"c","mjh") 给数组内增加一个c:"mjh"属性

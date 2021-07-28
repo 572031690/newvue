@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <div class="children1"></div>
+        <div class="children2"></div>
+        <div class="children3"></div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .father {
+        background: #eee;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* flex-direction: column; */
+    }
+    .father div {
+        height: 50px;
+        border: 1px solid red;
+        flex: 1;
+    }
+    /* 同父元素的第二个元素 如果是div的话就会生效 */
+    div:nth-child(2) {
+        flex: 2;
+        
+    }
+
+
+</style>
+
+</html>

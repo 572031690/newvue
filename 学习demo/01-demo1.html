@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            {{10+20}}  <!-- 双大括号内不支持带html标签的识别显示 比如<p></p> -->
+            <p>{{myname}}</p>
+            {{10>20?'aaa':'bbb'}}
+            <!-- 识别html标签 -->
+            <div v-html="myhtml"></div>
+        </div>
+        <div>
+            {{10+20}}
+        </div>
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                        myname:'mjh',
+                        myhtml:'<h1>123456</h1>'
+                },//状态
+            })
+		</script>
+	</body>
+</html>

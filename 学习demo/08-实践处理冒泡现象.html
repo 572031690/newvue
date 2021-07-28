@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            <!-- .self可以阻止子元素执行冒泡方法从而使本方法也被执行，只能单独点击自己的时候才能被促发 -->
+            <ul @click.self="hanleulclick()">
+            <!-- 当li内的方法被执行的时候ul内的也会被执行加上.stop后就可以直接内部执行stopPropagation()阻止冒泡方法-->
+               <li @click.stop="hanleclick($event)">   
+                    点击1
+                </li>
+                <li @click="hanleclick()">点击2</li>
+                <!-- .once的方法只能被触发一次 -->
+                <li @click.once="hanleclick()">点击3</li>
+            </ul>
+            <!-- 此方法可以阻止标签的默认提交方法走后面的click 也可以用于submit等等 -->
+            <a href="http://www.baidu.com" @click.prevent="handleChangePage()">handleChangePage</a> 
+        </div>
+       
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+
+                },//状态
+                methods: {
+                    hanleulclick(){
+                        console.log("fuqi")
+                    },
+                    hanleclick(e){
+                        // e.stopPropagation();  //可以阻止冒泡方法
+                        console.log("erzi")
+                    },
+                    handleChangePage(){
+                        console.log("你已经阻止了a标签的默认方法了")
+                    }
+                },
+            })
+		</script>
+	</body>
+</html>

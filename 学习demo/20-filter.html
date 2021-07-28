@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <img :src="data.img | kerwinpath" >
+    <script>
+        //过滤器修改得到的图片网络地址 替换部分内容 只需要在数据后面加上 | 过滤器名 就可以了
+        Vue.filter('kerwinpath',function(data){
+            return data.replace('w.h','128.120')
+        })
+    </script>
+</body>
+</html>

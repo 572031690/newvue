@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            <!-- 里面是js得地盘 所以得输入'' -->
+            <div v-hello="'red'"> 123132</div>
+            <div v-hello="'yellow'"> 123132</div>
+            <div v-hello="mycolor"> 123132</div>
+            <!-- 可以传对象 -->
+            <div v-hello="{
+                color: mycolor,
+                length: 5
+            }"> 123132</div>
+            
+        </div>
+       
+		<script type="text/javascript">
+            Vue.directive('hello',{
+                //插入   指令生命周期-创建  只会执行一次 无论数据怎么修改都不会在执行
+                //当指令插入父节点中了 就会更新
+                inserted(el,bind){
+                    console.log('插入成功')
+                    console.log(el) //父节点得dom <div> 123132</div>
+                    console.log(bind) //得到一个对象 里面得value就是我们输入得值
+                    // el.style.background='red'
+                    el.style.background = bind.value
+
+                },
+                update(el,bind) {
+                    //指令得生命周期-更新   数据修改就会执行
+                    el.style.background=bind.value
+                },
+            })
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                        mycolor:'red'
+                },//状态
+            })
+		</script>
+	</body>
+</html>

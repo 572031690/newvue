@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+       <div id="box">
+            <h1>购物车</h1>
+            <hr>
+            <input type="checkbox" @change="handelChange" v-model="checkAll"> 全选
+            <ul>
+                <li v-for="(data,key) in list">
+                    <input type="checkbox" :value="data" v-model="checklist" @change="handeliChange">{{data}}
+                    <button @click="data.num++">+</button>
+                    {{data.num}}
+                    <button @click="data.num--" ref="del" :disabled="data.num===1?true:false">-</button>
+                </li>
+            </ul>
+            {{checklist}}
+            <br>
+            总价：{{getSum()}}   
+       </div>
+		<script type="text/javascript">
+			var vm = new Vue({
+                el:'#box',
+                data:{
+                    checkAll:false,
+                    list:[
+                        {
+                            name:"牙刷",
+                            price:40,
+                            num:2
+                        },
+                        {
+                            name:"被子",
+                            price:20,
+                            num:1
+                        },
+                        {
+                            name:"毛巾",
+                            price:30,
+                            num:3
+                        }
+                        
+                    ],
+                    checklist:[],
+                    del:[]
+                },
+                methods: {
+                   // 函数计算发生改变的时候，此函数就会自动被执行一次
+                    getSum(){
+                        var sum = 0;
+                        for(let i in this.checklist){
+                            sum+=this.checklist[i].price*this.checklist[i].num
+                        }
+                        return sum
+                    },
+                    //全选的绑定方法
+                    handelChange(){
+                        if(this.checkAll){
+                            this.checklist=this.list;
+                        }else{
+                            this.checklist=[]
+                        }
+                    },
+                    //判断复选框是否被一一全选的方法
+                    handeliChange(){
+                        if(this.checklist.length===this.list.length){
+                            this.checkAll=true
+                        }else{
+                            this.checkAll=false
+                        }
+                    },
+                   
+
+                },
+                // mounted() {
+                //     for(var i in this.list){
+                //         if(list[i].num===1){
+                //             del[i]=true
+                //         }
+                //     }
+                // }
+            })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            <!-- .lazy失去焦点以后在执行v-model -->
+            <input type="text" v-model.lazy="myname"> {{myname}} <br>
+            <!-- 只会读取输入的数字内容，当时如果输入的第一位不是数字也就失效了，比较鸡肋 -->
+            <input type="number" v-model.number="mynum"> {{mynum}} <br>
+            <!-- .trim去掉首尾空格 -->
+            <input type="text" v-model.trim="myname">  |{{myname}}| <br>
+           
+
+        </div>
+       
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                        myname:'',
+                        mynum:0
+                       
+                },//状态
+            })
+		</script>
+	</body>
+</html>

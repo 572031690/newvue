@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            {{isShow}}
+           <button @click="isShow = !isShow">click</button>
+           <transition name='kwf'>
+                <div v-show='isShow'>111111</div>
+           </transition>
+
+           <transition name='kwff2'>
+                <div v-show='isShow'>22222</div>
+           </transition>
+           <hr>
+           <!--当transition里面有两个元素的时候是不会触发动画的 ，除非使用if else
+            但是当两个元素的dom标签一样的时候vue会认为是同一个类型所以不会删除，所以需要
+            定义key值不同才能识别删除和添加
+            mode可以设置两个元素动画的先后执行 out-in是先出后进 in-out是先进后出   -->
+           <transition name='bounce' mode='out-in'>   
+                <div v-if="isShow" key='2'>aaaaa</div>
+                <div v-else key="1">bbbbb</div>
+           </transition>
+        </div>
+
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                        isShow : false
+                        
+                },//状态
+            })
+		</script>
+        <style>
+            .kwf-enter-active, .kwf-leave-active{
+                transition:  all 1.5s;
+            }
+            /* enter 进入时的状态 enter-to 进入后的状态 leave-to消失时的状态  leave消失开始时的状态*/
+            .kwf-enter,.kwf-leave-to{
+
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            .kwff2-enter-active{
+                animation: bounce-in .5s ;
+            }
+            .kwff2-leave-active{
+                animation: bounce-in .5s reverse;
+            }
+            @keyframes bounce-in {
+                0% {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+
+
+            .bounce-enter-active{
+                animation: bouncein .5s;
+            }
+            .bounce-leave-active{
+                animation: bouncein .5s reverse;
+            }
+            @keyframes bouncein {
+                0% {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        </style>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1551511564111</li>
+        <li>1561651111111</li>
+    </ul>
+</body>
+<style >
+    * {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    /*引入图标字体文件*/
+    @font-face {
+        font-family: electronicFont;
+        src: url(./lib/图标字体/DS-DIGIT.TTF);
+    }
+    ul {
+        display: flex;
+    }
+    li{
+        flex: 1;
+        height: 1rem;
+        width: 1rem;
+        border:  .0125rem solid pink;
+
+        text-align: center;
+        font-size: .625rem;
+        font-family: 'electronicFont';
+    }
+</style>
+<script src="./lib/图标字体/DS-DIGIT.TTF"></script>
+<script src="./lib/rem自适应大小/flexible.js"></script>
+</html>

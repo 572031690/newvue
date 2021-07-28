@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ad"></div>
+</body>
+<style >
+    .ad{
+        /* 水平垂直居中*/
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        background: #eee;
+        height: 500px;
+        width: 500px;
+        /* infinite无限循环  linear匀速变化*/
+        animation: rotate1 6s linear infinite;
+    }
+
+    @keyframes rotate1 {
+        form {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
+</html>

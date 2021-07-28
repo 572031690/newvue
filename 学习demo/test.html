@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+           <button @click="handlecheck()">click</button>
+
+            <!-- <ul> -->
+                <!-- transition-group会实例化成tag里的标签 默认是span  
+                齐还需要里面的组件设置key值-->
+                <transition name='ddd'>  
+                    <div class="ddd1" v-show='show'>123
+                        <div>156</div>
+                    </div>
+                </transition>
+
+            <!-- </ul> -->
+
+        </div>
+
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                        list : [],
+                        text:'',
+                        show:false
+                        
+                },//状态
+                methods: {
+                    handlecheck(){
+                        this.show = !this.show
+                    },
+                    del(key){
+
+                    }
+                },
+            })
+		</script>
+        <style>
+            .ddd1{
+                width: 6.25rem;
+                height: 6.25rem;
+                background: #000;
+                overflow: hidden;
+                color:red;
+            }
+
+            .ddd-enter-active, .ddd-leave-active{
+                transition:  height 1.5s;
+            }
+            .ddd-enter,.ddd-leave-to{
+                height: 0;
+            }
+
+            
+        </style>
+        <script src="./lib/rem自适应大小/flexible.js"></script>
+	</body>
+</html>

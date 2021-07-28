@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            <button @click="handleClick()">点击</button>
+           <div :class="sanmu?'red':'yellow'">class三目写法</div>
+           <div :class="classobj">class对象写法</div>
+           <div :class="classarr">class数组写法</div>
+           <hr>
+           <div :style="'background:'+(sanmu?'yellow':'red')">style三目写法</div>
+            <div :style='styleobj'>style对象写法</div>
+            <div :style='stylearr'>style数组写法</div>
+        </div>
+		<script type="text/javascript">
+			var vm = new Vue({
+                el:'#box',
+                data:{
+                    sanmu:false,
+                    classobj:{
+                        a:true,
+                        b:true
+                    },
+                    classarr:["a","b"] , //可以通过arr.pop删除最后一个  arr.push(c)加入一个到最后
+                    styleobj:{
+                        backgroundColor:'red'   //里面不能识别 - 所以background-color是会报错的 直接写错backgroundColor就可以了
+                        // background:'red' //这样也可以 
+                    },
+                    stylearr:[]  //vm.stylearr.push({background:'red'})添加元素进去  vm.stylearr.push({fontSize:"30px"})
+                                //可以用vm.stylearr.shift()  弹出数组里面的第一个也就是删除第一个其他元素往前
+                },
+                methods:{
+                    handleClick(){
+                        this.sanmu=!this.sanmu
+                    }
+                }
+            })
+		</script>
+	</body>
+    <style scoped>
+       
+    </style>
+</html>

@@ -1,0 +1,1 @@
+也可以用v-model绑定，只不过选中chekbox代表true 不选中代表false
