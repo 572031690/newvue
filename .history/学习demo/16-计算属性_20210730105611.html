@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+            <!-- toUpperCase() 将字母变成大写 
+                 substring(0,1) 从字符串的第0位开始取一个字符 
+                 substring(1) 从字符串的第一位开始取到完-->
+            <!-- {{name.substring(0,1).toUpperCase() + name.substring(1)}}   当时这样维护性差，同事看不懂-->
+
+            <!-- **********区别：计算机属性利用率更高一点，计算属性会缓存，当同一个地方多次调用同一个属性时，方法会每一次调用
+                都会执行一次，而计算属性只需要执行一次************** -->
+            计算属性：{{getmyname}} <br>
+            方法：{{getmy()}}
+            <hr>
+            计算属性：{{getmyname}} <br>
+            方法：{{getmy()}}
+        </div>
+        
+		<script type="text/javascript">
+        
+            
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+                    name:"myname"
+                },//状态
+                methods: {
+                    getmy(){
+                        console.log("方法被调用了")
+                        return this.name.substring(0,1).toUpperCase() + this.name.substring(1)
+                    }
+                    
+                },
+                computed:{
+                    //定义的像个方法，但是其实是一个变量所以后面引用的时候不能加（）
+                    getmyname(){
+                        console.log("计算属性被调用了")
+                        return this.name.substring(0,1).toUpperCase() + this.name.substring(1)
+                    }//依赖的状态改变了计算属性会重新计算一遍
+                }
+            })
+		</script>
+	</body>
+</html>

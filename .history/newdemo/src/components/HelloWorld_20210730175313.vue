@@ -2,7 +2,8 @@
   <div class="hello">
     <li>
         --{{$attrs.color}}
-        <slot name="app" :data="data1"></slot>
+        <slot name="app" :slotName="slotName"></slot>
+        <button @click="changeSlot">改变slot</button>
     </li>
   </div>
 </template>
@@ -12,20 +13,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String,
-    slotName:'dddddd',
-
+    slotName:'dddddd'
   },
   methods: {
-    changeSlot() {
-      console.log('123');}
-  },
-  data() {
-    return {
-      data1: 'mjh'
-    }
-  },
-  mounted () {
-    console.log(this.$attrs);
+    changeSlot() {console.log('123');}
+
   }
 }
 </script>

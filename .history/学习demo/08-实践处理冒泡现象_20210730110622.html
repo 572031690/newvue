@@ -20,8 +20,8 @@
                 <!-- .once的方法只能被触发一次 -->
                 <li @click.once="hanleclick()">点击3</li>
             </ul>
-            <!-- 此方法可以阻止标签的默认提交方法走后面的click 也可以用于submit等等   修饰符也可以连着写 -->
-            <a href="http://www.baidu.com" @click.prevent.stop="handleChangePage()">handleChangePage</a> 
+            <!-- 此方法可以阻止标签的默认提交方法走后面的click 也可以用于submit等等 -->
+            <a href="http://www.baidu.com" @click.prevent="handleChangePage()">handleChangePage</a> 
         </div>
        
 		<script type="text/javascript">

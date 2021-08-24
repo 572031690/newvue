@@ -1,14 +1,12 @@
 <template>
   <div class="home">
     <HelloWorld :color="dataColor">
-      <div slot="app" slot-scope="user">
-        slot--{{user.data}}
-      </div>
-       <!-- <template slot-scope="user">
+      <!-- <div slot="app" slot-scope="user">slot--{{user.data}}</div> -->
+       <template slot-scope="user">
         <div class="tmpl">
-          <span v-for="item in user.data">{{item}}</span>
+          <span v-for="item in user.data1">{{item}}</span>
         </div>
-      </template> -->
+      </template>
     </HelloWorld>
   </div>
 </template>
@@ -26,6 +24,9 @@ export default {
   data(){
     return {
       dataColor:'red',
+      p:'123',
+    slotName:'dddddd'
+
     }
   },
   mounted () {

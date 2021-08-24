@@ -19,10 +19,10 @@
                 </transition>
 
             <!-- </ul> -->
-            <div style="background-color: red;">
+            <div style="background-color: black;">
               <div style="border: 1px solid black;width: 100px;float: left;opacity: 0;">加油中国</div>
               <!-- <div style="border: 1px solid black;width: 600px;">底部栏</div> -->
-              <div style="clear:both;">{{getData()}}</div>
+              <div></div>
             </div>
 
         </div>
@@ -33,8 +33,7 @@
                 data:{
                         list : [],
                         text:'',
-                        show:false,
-
+                        show:false
                         
                 },//状态
                 methods: {
@@ -43,15 +42,6 @@
                     },
                     del(key){
 
-                    },
-                    getData() {
-                      let list = ['a','b','b']
-                      let list1 = ['c','c','c']
-                      let list2 = list.concat(list1) 
-                      console.log(list2);
-                      const unixTimeZero = new Date().getDay()
-                      let CurrentDate = new Date()
-                      return unixTimeZero
                     }
                 },
             })

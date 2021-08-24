@@ -1,14 +1,7 @@
 <template>
   <div class="home">
-    <HelloWorld :color="dataColor">
-      <div slot="app" slot-scope="user">
-        slot--{{user.data}}
-      </div>
-       <!-- <template slot-scope="user">
-        <div class="tmpl">
-          <span v-for="item in user.data">{{item}}</span>
-        </div>
-      </template> -->
+    <HelloWorld :color="dataColor" slot-scope="user">
+      <div slot="app" >slot--{{user.data}}</div>
     </HelloWorld>
   </div>
 </template>
@@ -18,7 +11,6 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-
   name: 'Home',
   components: {
     HelloWorld
@@ -26,9 +18,13 @@ export default {
   data(){
     return {
       dataColor:'red',
+      p:'123',
+    slotName:'dddddd'
+
     }
   },
   mounted () {
+    console.log(p);
   }
 }
 </script>

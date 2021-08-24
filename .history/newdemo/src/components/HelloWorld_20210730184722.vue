@@ -3,6 +3,9 @@
     <li>
         --{{$attrs.color}}
         <slot name="app" :data="data1"></slot>
+        <button @click="changeSlot">改变slot</button>
+        <!-- // 作用域插槽 -->
+        <!-- <slot :data="data"></slot> -->
     </li>
   </div>
 </template>
@@ -16,12 +19,12 @@ export default {
 
   },
   methods: {
-    changeSlot() {
-      console.log('123');}
+    changeSlot() {console.log('123');}
+
   },
   data() {
     return {
-      data1: 'mjh'
+      data1: ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba']
     }
   },
   mounted () {

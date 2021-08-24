@@ -3,6 +3,7 @@
     <li>
         --{{$attrs.color}}
         <slot name="app" :data="data1"></slot>
+
     </li>
   </div>
 </template>
@@ -16,8 +17,8 @@ export default {
 
   },
   methods: {
-    changeSlot() {
-      console.log('123');}
+    changeSlot() {console.log('123');}
+
   },
   data() {
     return {

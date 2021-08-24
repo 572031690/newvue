@@ -8,8 +8,6 @@
 	<body>
         <div id="box">
             <!-- 可以通过按键的键值或者常用的比如enter up down  left right esc退出 delete删除或者退格 space tab(只能绑定keydown) 可以直接用名字  keyup keydown -->
-
-            <!-- 系统修饰键 ctrl alt shift meta 配合keydown 正常使用 配合keyup需要按下此键的同时再按下另外任意键然后松开的时候才会触发方法 -->
           <input type="text" @keyup.enter="handelInput($event)">  <br>  <!--    需要鼠标点击input聚焦以后 按下键盘才能触发-->
            <input type="text" @keyup.space="handelInputspa($event)"> <br>
            <input type="text" @keyup.13="handelInput($event)"> <br>

@@ -45,13 +45,8 @@
 
                     },
                     getData() {
-                      let list = ['a','b','b']
-                      let list1 = ['c','c','c']
-                      let list2 = list.concat(list1) 
-                      console.log(list2);
-                      const unixTimeZero = new Date().getDay()
-                      let CurrentDate = new Date()
-                      return unixTimeZero
+                      let CurrentDate = new Date.parse()
+                      return CurrentDate
                     }
                 },
             })

@@ -16,8 +16,8 @@ export default {
 
   },
   methods: {
-    changeSlot() {
-      console.log('123');}
+    changeSlot() {console.log('123');}
+
   },
   data() {
     return {

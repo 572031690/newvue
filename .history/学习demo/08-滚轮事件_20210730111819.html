@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常量</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+        <div id="box">
+          <!-- @wheel鼠标滚轮滚动的时候触发 只要鼠标滚轮在滚动就会触发不管有没有到底 -->
+          <!--  -->
+          <ul @scroll='demo'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+        </div>
+       
+		<script type="text/javascript">
+			var vm =new Vue({
+                el:"#box",//vue渲染开始的地方
+                data:{
+
+                },//状态
+                methods: {
+                  demo(){
+                        console.log("fuqi")
+                    },
+                },
+            })
+		</script>
+	</body>
+  <style>
+    div {
+      border: 1px solid black ;
+      height: 500px;
+      overflow: auto;
+    }
+    li {
+      height: 200px;
+    }
+  </style>
+</html>
